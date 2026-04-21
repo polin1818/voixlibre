@@ -268,7 +268,7 @@ const SignalementsPublics = () => {
       if (categorie) params.append('categorie', categorie);
       if (statut)    params.append('statut', statut);
 
-      const res = await apiClient.get('/signalements/tous?' + params.toString());
+      const res = await apiClient.get('/signalements/public?' + params.toString());
       const { data, pagination: pg } = res.data;
       setSignals(prev => append ? [...prev, ...(data || [])] : (data || []));
       setPagination(pg || { page:1, pages:1, total:0 });
